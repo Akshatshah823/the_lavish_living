@@ -64,7 +64,7 @@
     /* Layout & Containers */
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1750px;
       margin: 0 auto;
       padding: 0;
     }
@@ -413,6 +413,57 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
+    /* contact us pop up */
+    .contact-button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* The popup */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .popup-content h3 {
+      margin-bottom: 15px;
+    }
+
+    .call-icon {
+      font-size: 28px;
+      color: #28a745;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .close-popup {
+      margin-top: 15px;
+      background: #ccc;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
     
     /* Responsive Design */
     @media (max-width: 992px) {
@@ -508,16 +559,18 @@
         <i class="fas fa-bars menu-toggle" id="menu-toggle"></i>
         <nav id="navbar">
           <a href="#" class="active">Home</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
           <a href="#">Portfolio</a>
           <a href="#">Blog</a>
-          <a href="#" class="nav-cta">Contact</a>
+          <button class="nav-cta" onclick="openPopup()">Contact Us</button>
+
+
         </nav>
       </div>
     </div>
   </header>
-
+  
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
@@ -525,6 +578,7 @@
         <h1>Elevate Your Living Experience</h1>
         <p>Discover unparalleled luxury and sophistication in every detail of our premium residential properties and lifestyle services.</p>
         <a href="#" class="hero-btn">Explore Properties</a>
+        
       </div>
     </div>
   </section>
@@ -583,16 +637,34 @@
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2023 Lavish Living. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #e91e63;"></i> by Lavish Team</p>
+        <p>&copy; 2025 The Lavish Living. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #e91e63;"></i> by The Lavish Living Team</p>
       </div>
     </div>
   </footer>
 
   <!-- Back to Top Button -->
   <a href="#" class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
-
+<!-- Popup Structure -->
+<div id="callPopup" class="popup-overlay">
+  <div class="popup-content">
+    <h3>Call Us</h3>
+    <a href="tel:+12345678901" class="call-icon">
+      📞 +91 8239239550
+    </a>
+    <br>
+    <button class="close-popup" onclick="closePopup()">Close</button>
+  </div>
+</div>
   <!-- Scripts -->
   <script>
+//pop up  for contact us 
+function openPopup() {
+      document.getElementById('callPopup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('callPopup').style.display = 'none';
+    }
     // Mobile Menu Toggle
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('navbar');
